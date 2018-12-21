@@ -21,7 +21,7 @@ jobs:
       - deploy:
           name: Push image
           command: |
-            docker push forestryio/api:$CIRCLE_BUILD_NUM
+            docker push forestryio/resque-web:$CIRCLE_BUILD_NUM
             docker push forestryio/resque-web:latest
 
 workflows:
