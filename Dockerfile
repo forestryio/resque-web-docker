@@ -1,10 +1,12 @@
-FROM ruby:2.5-alpine
+FROM ruby:2.6.6-buster
 
-RUN apk add --no-cache --update build-base && \
-    gem install --no-ri --no-rdoc resque-web resque-scheduler-web && \
-    apk del build-base && \
-    rm -rf /usr/local/bundle/cache
+WORKDIR /app
+COPY Gemfile Gemfile
+COPY Gemfile.lock Gemfile.lock
+RUN gem install bundler
+RUN bundle install
 
-EXPOSE 5678
-ENTRYPOINT ["resque-web", "-FL"]
-CMD ["-h"]
+COPY config.ru config.ru
+
+EXPOSE 9292
+ENTRYPOINT ["bundle", "exec", "rackup", "-o", "0.0.0.0"]
