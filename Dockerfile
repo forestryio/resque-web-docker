@@ -19,5 +19,5 @@ COPY . /app
 
 RUN bundle exec rails assets:precompile
 
-EXPOSE 9292
+EXPOSE 3000
 ENTRYPOINT ["bundle", "exec", "rails", "s"]
