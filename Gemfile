@@ -14,6 +14,7 @@ gem "resque", "~> 1.27.4"
 gem "resque-scheduler"
 gem "resque-web", require: "resque_web"
 gem "resque-scheduler-web"
+gem "execjs"
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

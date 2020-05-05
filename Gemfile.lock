@@ -221,6 +221,7 @@ PLATFORMS
 DEPENDENCIES
   byebug
   coffee-rails (~> 4.2)
+  execjs
   jbuilder (~> 2.5)
   puma (~> 3.11)
   rails (~> 5.2.4, >= 5.2.4.2)
