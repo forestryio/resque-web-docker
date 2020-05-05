@@ -1,7 +1,5 @@
-require "thin"
-require "resque"
-require "resque/server"
-require "resque/scheduler/server"
+# This file is used by Rack-based servers to start the application.
 
-Resque.redis = Redis.new(url: ENV["REDIS_URL"])
-run Rack::URLMap.new "/" => Resque::Server.new
+require_relative 'config/environment'
+
+run Rails.application
